@@ -1,12 +1,22 @@
-import { MapContainer, TileLayer } from "react-leaflet";
 import "./map.scss";
 import "leaflet/dist/leaflet.css";
+
+import { MapContainer, TileLayer } from "react-leaflet";
+
 import Pin from "../pin/Pin";
 
-const Map = ({ items }) => {
+import { type LatLngTuple } from "leaflet";
+import { AnnouncementDto } from "../../types/Announcement";
+
+const position = [52.4797, -1.90269];
+
+type MapProps = {
+  items: AnnouncementDto[];
+};
+const Map = ({ items }: MapProps) => {
   return (
     <MapContainer
-      center={position}
+      center={position as LatLngTuple}
       zoom={7}
       scrollWheelZoom={false}
       className="map"
@@ -21,7 +31,5 @@ const Map = ({ items }) => {
     </MapContainer>
   );
 };
-
-const position = [52.4797, -1.90269];
 
 export default Map;

@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./slider.scss";
 
-const Slider = ({ images }) => {
-  const [imageIndex, setImageIndex] = useState(null);
+type SliderProps = {
+  images: string[];
+};
+const Slider = ({ images }: SliderProps) => {
+  const [imageIndex, setImageIndex] = useState<number | null>(null);
 
-  const changeSlide = (direction) => {
+  const changeSlide = (direction: string) => {
+    if (imageIndex === null) return;
+
     if (direction === "left") {
       if (imageIndex === 0) {
         setImageIndex(images.length - 1);

@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
 import "./card.scss";
-const Card = ({ item }) => {
+
+import { Link } from "react-router-dom";
+
+import { AnnouncementDto } from "../../types/Announcement";
+
+export type CardProps = {
+  item: AnnouncementDto;
+};
+const Card = (props: CardProps) => {
+  const { item } = props;
+
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="imageContainer">

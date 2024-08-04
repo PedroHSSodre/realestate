@@ -1,8 +1,12 @@
 import { Marker, Popup } from "react-leaflet";
 import "./pin.scss";
 import { Link } from "react-router-dom";
+import { AnnouncementDto } from "../../types/Announcement";
 
-const Pin = ({ item }) => {
+type PinProps = {
+  item: AnnouncementDto;
+};
+const Pin = ({ item }: PinProps) => {
   return (
     <Marker position={[item.latitude, item.longitude]}>
       <Popup>

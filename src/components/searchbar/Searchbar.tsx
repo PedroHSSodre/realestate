@@ -1,8 +1,7 @@
-import { useState } from "react";
 import "./searchbar.scss";
-import { Link } from "react-router-dom";
 
-const types = ["buy", "rent"];
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Searchbar = () => {
   const [query, setQuery] = useState({
@@ -12,7 +11,8 @@ const Searchbar = () => {
     maxPrice: 0,
   });
 
-  const switchType = (type) => setQuery((query) => ({ ...query, type }));
+  const switchType = (type: string) =>
+    setQuery((query) => ({ ...query, type }));
 
   return (
     <div className="searchbar">
@@ -53,5 +53,7 @@ const Searchbar = () => {
     </div>
   );
 };
+
+const types = ["buy", "rent"];
 
 export default Searchbar;
