@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
+import { NavbarContent } from "../../constants/app-content";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,10 +15,11 @@ function Navbar() {
           <img src="/logo.png" alt="" />
           <span>LamaEstate</span>
         </a>
-        <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
-        <a href="/">Agents</a>
+        {NavbarContent.links.map((link) => (
+          <a href={link.value} key={link.label}>
+            {link.label}
+          </a>
+        ))}
       </div>
       <div className="right">
         {user ? (
@@ -48,10 +50,11 @@ function Navbar() {
           />
         </div>
         <div className={open ? "menu active" : "menu"}>
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Contact</a>
-          <a href="/">Agents</a>
+          {NavbarContent.links.map((link) => (
+            <a href={link.value} key={link.label}>
+              {link.label}
+            </a>
+          ))}
           <a href="/">Sign in</a>
           <a href="/">Sign up</a>
         </div>

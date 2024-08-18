@@ -1,4 +1,5 @@
 import Searchbar from "../../components/searchbar/Searchbar";
+import { HomepageContent } from "../../constants/app-content";
 import "./homePage.scss";
 
 export default function HomePage() {
@@ -6,30 +7,16 @@ export default function HomePage() {
     <div className="homePage">
       <div className="textContainer">
         <div className="wrapper">
-          <h1 className="title">
-            Find Real Estate & Get Your Dream Place Find Real Estate & Get Your
-            Dream Place
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            tempore, rerum ipsum autem id libero qui molestias illum sunt
-            assumenda! Aspernatur blanditiis, incidunt similique autem nostrum
-            labore reprehenderit officia nobis?
-          </p>
+          <h1 className="title">{HomepageContent.title}</h1>
+          <p>{HomepageContent.subtitle}</p>
           <Searchbar />
           <div className="boxes">
-            <div className="box">
-              <h1>16+</h1>
-              <h2>Years of Experience</h2>
-            </div>
-            <div className="box">
-              <h1>200</h1>
-              <h2>Award Gained</h2>
-            </div>
-            <div className="box">
-              <h1>1200+</h1>
-              <h2>Property Ready</h2>
-            </div>
+            {HomepageContent.info.map((info, index) => (
+              <div className="box" key={index}>
+                <h1>{info.title}</h1>
+                <h2>{info.content}</h2>
+              </div>
+            ))}
           </div>
         </div>
       </div>
